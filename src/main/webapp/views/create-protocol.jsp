@@ -67,7 +67,7 @@
                 <span class="regular-text"><label class="regular-label-requirement" id="label-telefone">Telefone</label></span>
                 <form:input path="telefone" class="regular-input"/><br/><br/>
                 <span class="regular-text"><label class="regular-label-requirement" id="label-data">Data:</label></span>
-                <form:input path="data" class="regular-input" /><br/><br/><br/>
+                <p class="regular-input">${data}</p><br/><br/><br/>
                 <span class="regular-text"><label class="regular-label-requirement" id="label-objeto">Objeto do
                     Requerimento</label></span>
                 <form:select class="regular-select" id="select-objeto" path="objetoRequerimento">

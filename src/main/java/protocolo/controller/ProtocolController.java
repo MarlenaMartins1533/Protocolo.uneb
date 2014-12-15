@@ -5,6 +5,9 @@
  */
 package protocolo.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,17 +27,23 @@ public class ProtocolController {
     private ProtocolDAO protocolDAO = new ProtocolDAO();
     
     @RequestMapping(value = "/create-protocol")
-    public ModelAndView createProtocol(){
+    public ModelAndView createProtocol() throws ParseException{
+        SimpleDateFormat date = new SimpleDateFormat("dd/MM/yyyy");
         ModelAndView modelAndView = new ModelAndView("create-protocol");
         modelAndView.addObject("protocolo", new Protocol());
+        modelAndView.addObject("data",date.format(new Date()));
         return modelAndView;
     }
     
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public ModelAndView add(@ModelAttribute("protocolo") Protocol protocol){
+        SimpleDateFormat date = new SimpleDateFormat("dd/MM/yyyy");
         ModelAndView modelAndView = new ModelAndView("index");
         modelAndView.addObject("codigo", new Codigo());
-        protocol.setCodigo(protocol.getId()+protocol.getData());
+        protocol.setData(date.format(new Date()));
+        String data = protocol.getData();
+        data = data.replace("/","");
+        protocol.setCodigo(protocol.getId()+data);
         protocolDAO.add(protocol);
         return modelAndView;
     }
