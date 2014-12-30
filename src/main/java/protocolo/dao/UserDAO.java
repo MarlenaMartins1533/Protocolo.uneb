@@ -45,9 +45,7 @@ public class UserDAO {
     public User getUserById(int id){
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        List list = session.createQuery("from User where iduser= :id")
-                .setParameter("id", id)
-                .list();
+        List list = session.createQuery("from User where iduser= :id").setParameter("id", id).list();
         transaction.commit();
         session.close();
         return (User) list.get(0);
@@ -56,9 +54,7 @@ public class UserDAO {
     public User getUserByUsername(String username){
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        List list = session.createQuery("from User where username= :username")
-                .setParameter("username", username)
-                .list();
+        List list = session.createQuery("from User where username= :username").setParameter("username", username).list();
         transaction.commit();
         session.close();
         if(list.isEmpty()){
@@ -70,8 +66,7 @@ public class UserDAO {
     public List getAllUsers(){
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        List list = session.createQuery("from User")
-                .list();
+        List list = session.createQuery("from User").list();
         transaction.commit();
         session.close();
         return list;

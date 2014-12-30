@@ -33,10 +33,10 @@
 						<br/>
 						<br/>
 						<br/>
-						<br/>
-						<br/>
-						<br/>					
+						<br/>				
 						<span class="regular-text">Número do Protocolo</span><br/>
+                                                <br/>
+						<br/>
 						<form:input path="codigo" name="protocol-number" class="basicInput" placeholder="Buscar"/>
 						<br/><br/>
 						<div class="actions">

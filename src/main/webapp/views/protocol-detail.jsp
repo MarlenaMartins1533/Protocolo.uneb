@@ -60,28 +60,29 @@
                 </select><br/><br/>
                 <span class="regular-text"><label class="regular-label-requirement"
                                                   id="label-rg">RG</label></span><input type="text"
-                                                                                        class="regular-input"
-                                                                                        value="13113112-21"></input><br/><br/>
+                                                  class="regular-input"
+                                                  value="13113112-21"></input><br/><br/>
                 <span class="regular-text"><label class="regular-label-requirement"
-                                                  id="label-cpf">CPF</label></span><input type="text"
-                                                                                          class="regular-input"
-                                                                                          value="067.345.445-27"></input><br/><br/>
+                                                  id="label-cpf">CPF</label></span><input
+                                                  type="text"
+                                                  class="regular-input"
+                                                  value="067.345.445-27"></input><br/><br/>
                 <span class="regular-text"><label class="regular-label-requirement"
-                                                         id="label-endereco">Endereço</label></span>
+                                                  id="label-endereco">Endereço</label></span>
                 <input type="text" class="regular-input" value="Alto do Cabula VI, Apt 202 N 64" size="150"></input> <br/><br/>
                 <span class="regular-text"><label class="regular-label-requirement" id="label-telefone">Telefone</label></span><input
                     type="text" class="regular-input" value="(71) 3333-3333"></input><br/><br/>
                 <span class="regular-text"><label class="regular-label-requirement" id="label-data">Data:</label></span><input
                     type="text" class="regular-input" value="12/12/1969"></input><br/><br/><br/>
-                <span class="regular-text"><label class="regular-label-requirement" id="label-objeto">Objeto do
-                    Requerimento</label></span>
+                <span class="regular-text"><label class="regular-label-requirement" 
+                                                  id="label-objeto">Objeto do Requerimento</label></span>
                 <select class="regular-select" id="select-objeto">
                     <option value="historico" default="true">Histórico Escolar</option>
                     <option value="2chamada">Segunda Chamada</option>
+                    <option value="ementa">Ementa</option>
                 </select><br/><br/>
                 <span class="regular-text"><label class="regular-label-requirement" id="label-esclarecimento">Esclarecimento
-                    sobre o objeto do
-                    requerimento:</label></span><br/><br/>
+                    sobre o objeto do requerimento:</label></span><br/><br/>
             <p><textarea rows="6" cols="80" class="regular-text-area" placeholder="Histórico Escolar para comprovação de carga horária."></textarea></p>
 
             <p> <input type="submit" value="Voltar" class="btn" onClick="goBack()"></input>
