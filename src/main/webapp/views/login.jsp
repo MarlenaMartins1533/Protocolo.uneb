@@ -20,17 +20,17 @@
 	<div class="content">
 		<div class="search-box">
 			<div class="search-box-form">
-                            <form:form commandName="login" class="search-box-form requirement" action="${pageContext.request.contextPath}/login">
+                            <form:form commandName="login" class="search-box-form requirement" action="${pageContext.request.contextPath}/loginForm">
 					<div class="main-search">
-						<br/>
-						<br/>
-						<br/>
-						<br/>
-						<br/>
-						<br/>
-						<br/>
-						<br/>
-						<br/>
+                                            <br/>
+                                            <div class="regular-text-right">
+                                                <br/>
+                                                <br/>
+                                                <span> <label id="label-data"><p>Data:${data}</p></label></span></div>
+                                                <br/>
+                                                <br/>
+                                                <br/>
+                                                <br/>
 						<div class="login-box">
 							<span class="regular-text">Usuário:</span>
 							<form:input path="username" name="protocol-number" class="login-input"/>

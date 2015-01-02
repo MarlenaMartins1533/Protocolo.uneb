@@ -18,7 +18,7 @@
 	<div class="header">
 		<div class="restricted-area">
 			<span class="acesso-restrito">
-                            <a href="loginForm">Acesso Restrito</a>
+                            <a href="${pageContext.request.contextPath}/login" class="regular-text">Acesso Restrito</a>
 			</span>
 		</div>
 	</div>
@@ -30,23 +30,24 @@
 						<br/>
 						<br/>
 						<br/>
+                                                 <div class="regular-text-right">
+                                                     <span> Seja bem-vindo! <label id="label-data"><p>Data: ${data}</p></label></span>
+                                                 </div>
 						<br/>
-						<br/>
-						<br/>
+                                                <br/>
 						<br/>				
 						<span class="regular-text">Número do Protocolo</span><br/>
-                                                <br/>
-						<br/>
 						<form:input path="codigo" name="protocol-number" class="basicInput" placeholder="Buscar"/>
 						<br/><br/>
 						<div class="actions">
 							<a href="${pageContext.request.contextPath}/create-protocol" class="regular-text">Criar novo requerimento</a>
 							<span> | </span>
-							<a href="#" class="regular-text">Buscar Requerimento</a>
+							<a href="${pageContext.request.contextPath}/protocol-detail" class="regular-text">Buscar Requerimento</a>
 						</div>
-			</form:form>
-		</div>
-	</div>
+                            </form:form>
+                        </div>
+                </div>
+        </div>
 	<div class="footer"></div>
 </body>
 </html>

@@ -73,10 +73,10 @@
                 <form:select class="regular-select" id="select-objeto" path="objetoRequerimento">
                     <form:option value="historico"> Histórico Escolar</form:option>
                     <form:option value="segundaChamada"> Segunda Chamada</form:option>
+                    <%-- <form:option value="ementa"> Ementa </form:option>  mexi--%>
                 </form:select><br/><br/>
                 <span class="regular-text"><label class="regular-label-requirement" id="label-esclarecimento">Esclarecimento
-                    sobre o objeto do
-                    requerimento:</label></span><br/><br/>
+                    sobre o objeto do requerimento:</label></span><br/><br/>
                     <p><form:textarea rows="6" cols="80" class="regular-text-area" path="esclarescimento"/></p>
 
                 <p><button value="Voltar" class="btn">Voltar</button>

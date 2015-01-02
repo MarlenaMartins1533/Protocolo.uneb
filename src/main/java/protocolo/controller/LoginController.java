@@ -6,6 +6,8 @@
 package protocolo.controller;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.text.SimpleDateFormat; //formatar data
 import javax.enterprise.inject.Model;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -37,6 +39,8 @@ public class LoginController {
     @RequestMapping(value = "/login")
     ModelAndView login(@ModelAttribute Login login){
         ModelAndView modelAndView = new ModelAndView("login");
+        SimpleDateFormat date = new SimpleDateFormat("dd/MM/yyyy");
+        modelAndView.addObject("data",date.format(new Date()));
         return modelAndView;
     }
     
