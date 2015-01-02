@@ -31,7 +31,7 @@
 </div>
 <div class="content">
     <div class="protocol-detail">
-        <form name="protocolo" method="post" action="index.html" class="form-protocol-detail">
+        <form:form name="protocolo" method="post" action="index.html" class="form-protocol-detail">
             <fieldset>
                 <legend>Requerimento</legend>
             <p>
@@ -101,6 +101,6 @@
             </p>
 
             </fieldset>
-        </form>
+        </form:form>
     </div>
 </html>

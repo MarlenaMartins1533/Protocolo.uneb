@@ -15,8 +15,8 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
 </head>
 <body>
-	<div class="header">
-	</div>
+    <div class="header">
+    </div>
 	<div class="content">
 		<div class="search-box">
 			<div class="search-box-form">
@@ -26,26 +26,28 @@
                                             <div class="regular-text-right">
                                                 <br/>
                                                 <br/>
-                                                <span> <label id="label-data"><p>Data:${data}</p></label></span></div>
-                                                <br/>
+                                                <span> Protocolo UNEB <label id="label-data"><p>Data:${data}</p></label></span>
+                                            </div>
                                                 <br/>
                                                 <br/>
                                                 <br/>
 						<div class="login-box">
 							<span class="regular-text">Usuário:</span>
-							<form:input path="username" name="protocol-number" class="login-input"/>
+							<input path="username" name="protocol-number" class="login-input"/>
 							</br></br>
 							<span class="regular-text">Senha:</span>
 							<form:password path="password" name="protocol-number" class="login-input"/>
 						</div>			
 						<div class="actions">
-							<a href="admin/index.html" class="regular-text">Login</a>
+							<a href="${pageContext.request.contextPath}/menu" class="regular-text">Login</a>
 							<span> | </span>
-							<a href="#" class="regular-text">Esqueci minha senha</a>
+							<a href="${pageContext.request.contextPath}/erro" class="regular-text">Esqueci minha senha</a>
 						</div>
-			</form:form>
-		</div>
-	</div>
+                                        </div>
+                            </form:form>
+                        </div>
+                </div>
+        </div>
 	<div class="footer"></div>
 </body>
 </html>

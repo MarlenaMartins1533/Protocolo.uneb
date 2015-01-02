@@ -20,8 +20,8 @@
 				Olá User, seja bem vindo!
 			</span>
 			<span class="acesso-restrito">
-				<a class="link-list" href="../login.html">Efetuar Logout</a>
-			</span>
+				<a class="link-list" href="${pageContext.request.contextPath}/login">Efetuar Logout</a>
+                                </span>
 			<span class="user-menu">
 				<a class="link-list" href="systemConfiguration.php">Configuração do Sistema</a> | <a class="link-list" href="#">Meus dados</a> | <a class="link-list" href="index.html">Histórico de Solicitações</a> |
 			</span>

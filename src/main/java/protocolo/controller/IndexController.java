@@ -8,6 +8,7 @@ package protocolo.controller;
 import org.springframework.stereotype.Controller;
 import java.util.Date;
 import java.text.SimpleDateFormat; //formatar data
+import java.util.ArrayList;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import protocolo.model.Codigo;
@@ -25,6 +26,12 @@ public class IndexController {
         SimpleDateFormat date = new SimpleDateFormat("dd/MM/yyyy");
         modelAndView.addObject("codigo", new Codigo());
         modelAndView.addObject("data",date.format(new Date()));
+        return modelAndView;
+    }
+    
+    @RequestMapping(value = "/erro")
+    ModelAndView erro(){
+        ModelAndView modelAndView = new ModelAndView("erro");
         return modelAndView;
     }
 }
