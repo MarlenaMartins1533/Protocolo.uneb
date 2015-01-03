@@ -18,7 +18,7 @@
 <div class="header">
     <div class="restricted-area">
 			<span class="saudacao">
-				Olá User, seja bem vindo!
+				Olá, seja bem vindo!
 			</span>
 			<span class="acesso-restrito">
 				<a href="../login.html">Efetuar Logout</a>
@@ -35,6 +35,8 @@
             <fieldset>
                 <legend>Requerimento</legend>
             <p>
+                <span><div class="semaforo"> </div> </span>
+                
                 <span class="regular-text"><label class="regular-label-requirement" id="label-name">Nome</label></span>
                 <input type="text" class="regular-input" value="José da Silva" id="input-name"/><br/><br/>
                 <span class="regular-text"><label class="regular-label-requirement" id="label-matricula">N°
@@ -103,4 +105,5 @@
             </fieldset>
         </form:form>
     </div>
+</body>
 </html>

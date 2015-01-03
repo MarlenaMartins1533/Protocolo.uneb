@@ -52,12 +52,22 @@
     margin-bottom: 5px;
 }
 
+.semaforo {
+	position: relative;
+	margin-top: 10px;
+	margin-left: 75%;
+	border-radius: 10px;
+	width: 97px;
+	height: 35px;
+	background-image:url('../imgs/semaforo.png');
+}
+
 .restricted-area {
 	width: 100%;
 	overflow: hidden;
 	height: 35px;
 	background-color:#07283f;//Aquiiiiiii
-    padding: 5px 0;
+        padding: 5px 0;
 }
 .saudacao {
 	font-family: Corbel;
@@ -95,7 +105,7 @@ body {
 	background-color: #0b456b;
 }
 .list-protocol-header {
-	margin-top: 30px;
+	margin-top: 10px;
 	text-align: center;
 	color:#FFF;
 }

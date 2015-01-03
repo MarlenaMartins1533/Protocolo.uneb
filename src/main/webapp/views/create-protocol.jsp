@@ -27,7 +27,7 @@
         <form:form commandName="protocolo" action="${pageContext.request.contextPath}/add" class="form-protocol-detail">
             <fieldset>
                 <legend>Requerimento</legend>
-            <p>
+            <p><br/>
                 <span class="regular-text"><label class="regular-label-requirement" id="label-name">Nome</label></span>
                 <form:input path="nome" class="regular-input" id="input-name"/><br/><br/>
                 <span class="regular-text"><label class="regular-label-requirement" id="label-matricula">N°
@@ -79,11 +79,14 @@
                     sobre o objeto do requerimento:</label></span><br/><br/>
                     <p><form:textarea rows="6" cols="80" class="regular-text-area" path="esclarescimento"/></p>
 
-                <p><button value="Voltar" class="btn">Voltar</button>
-                
-                <input type="submit" value="Enviar" class="btn"></input>
-                
-                <input type="reset" value="Limpar" class="btn"></input>
+                <p> <div class="actions">
+                        <input type="submit" value="Enviar" class="btn"></input>
+                        <span> | </span>
+                        <input type="reset" value="Limpar" class="btn"></input>
+                        <div class="regular-text-right">
+                        <a href="${pageContext.request.contextPath}/" class="regular-text">Voltar</a>
+                        </div>
+                    </div>
                 </p>
             </fieldset>
         </form:form>

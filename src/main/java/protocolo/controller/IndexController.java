@@ -28,12 +28,6 @@ public class IndexController {
         modelAndView.addObject("data",date.format(new Date()));
         return modelAndView;
     }
-    
-    @RequestMapping(value = "/erro")
-    ModelAndView erro(){
-        ModelAndView modelAndView = new ModelAndView("erro");
-        return modelAndView;
-    }
 }
     
         

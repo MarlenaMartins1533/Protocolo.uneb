@@ -42,6 +42,11 @@ public class LoginController {
         SimpleDateFormat date = new SimpleDateFormat("dd/MM/yyyy");
         modelAndView.addObject("data",date.format(new Date()));
         return modelAndView;
-    }
+    }    
     
+    @RequestMapping(value = "/erro")
+    ModelAndView erro(){
+        ModelAndView modelAndView = new ModelAndView("erro");
+        return modelAndView;
+    }    
 }
