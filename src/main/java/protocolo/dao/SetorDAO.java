@@ -9,72 +9,54 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import protocolo.model.Protocol;
+import protocolo.model.Setor;
 
 /**
  *
  * @author Murilo
  */
-public class ProtocolDAO {
+public class SetorDAO {
     private SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
     
-    public void add(Protocol protocol){
+    public void add(Setor setor){
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        session.save(protocol);
+        session.save(setor);
         transaction.commit();
         session.close();
     }
     
-    public void edit(Protocol protocol){
+    public void edit(Setor setor){
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        session.update(protocol);
+        session.update(setor);
         transaction.commit();
         session.close();
     }
     
-    public void delete(Protocol protocol){
+    public void delete(Setor setor){
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        session.delete(protocol);
+        session.delete(setor);
         transaction.commit();
         session.close();
     }
     
-    public Protocol getProtocolById(int id){
+    public Setor getSetorById(int id){
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        List list = session.createQuery("from Protocol where id= :id")
-                .setParameter("id", id)
-                .list();
+        List list = session.createQuery("from Setor where id= :id").setParameter("id", id).list();
         transaction.commit();
         session.close();
-        return (Protocol) list.get(0);
+        return (Setor) list.get(0);
     }
     
-    public Protocol getProtocolByCodigo(String codigo){
+    public List getAllUsers(){
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        List list = session.createQuery("from Protocol where codigo= :codigo")
-                .setParameter("codigo", codigo)
-                .list();
-        transaction.commit();
-        session.close();
-        if(list.isEmpty()){
-            return null;
-        }
-        return (Protocol) list.get(0);
-    }
-    
-    public List getAllProtocols(){
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        List list = session.createQuery("from Protocol")
-                .list();
+        List list = session.createQuery("from Setor").list();
         transaction.commit();
         session.close();
         return list;
     }   
-    
 }

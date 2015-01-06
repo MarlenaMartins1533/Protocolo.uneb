@@ -5,11 +5,16 @@
  */
 package protocolo.model;
 
+import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -18,11 +23,13 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "usuario")
-public class User {
+public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column
     private int id;
+    
+    @Column
     private String password;
     private String nome;
     private UserType type;
@@ -30,6 +37,9 @@ public class User {
     @Column(unique = true)
     private String username;
 
+    @ManyToOne
+    private Setor setor;
+    
     /**
      * @return the id
      */
@@ -98,5 +108,19 @@ public class User {
      */
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    /**
+     * @return the setor
+     */
+    public Setor getSetor() {
+        return setor;
+    }
+
+    /**
+     * @param setor the setor to set
+     */
+    public void setSetor(Setor setor) {
+        this.setor = setor;
     }
 }

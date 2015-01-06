@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import protocolo.dao.ProtocolDAO;
+import protocolo.dao.SetorDAO;
 import protocolo.model.Codigo;
 import protocolo.model.Protocol;
+import protocolo.model.Setor;
 
 /**
  *
@@ -26,6 +28,7 @@ import protocolo.model.Protocol;
 public class ProtocolController {
     
     ProtocolDAO protocolDAO = new ProtocolDAO();//era private
+    SetorDAO setorDAO = new SetorDAO();
     
     @RequestMapping(value = "/create-protocol")
     public ModelAndView createProtocol() throws ParseException{
@@ -38,7 +41,7 @@ public class ProtocolController {
     
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public ModelAndView add(@ModelAttribute("protocolo") Protocol protocol){
-        SimpleDateFormat date = new SimpleDateFormat("yyyy");
+        SimpleDateFormat date = new SimpleDateFormat("dd/MM/yyyy");
         ModelAndView modelAndView = new ModelAndView("index");
         modelAndView.addObject("codigo", new Codigo());
         protocol.setData(date.format(new Date()));
@@ -46,6 +49,9 @@ public class ProtocolController {
         data = data.replace("/","");
         protocol.setCodigo(protocol.getId()+ data);
         protocolDAO.add(protocol);
+        Setor setor = setorDAO.getSetorById(1);
+        setor.addProtocols(protocol);
+        setorDAO.edit(setor);
         return modelAndView;
     }
     

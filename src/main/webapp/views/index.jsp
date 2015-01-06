@@ -18,7 +18,7 @@
 	<div class="header">
 		<div class="restricted-area">
 			<span class="acesso-restrito">
-                            <a href="${pageContext.request.contextPath}/login" class="regular-text">Acesso Restrito</a>
+                            <a href="${pageContext.request.contextPath}/loginForm" class="regular-text">Acesso Restrito</a>
 			</span>
 		</div>
 	</div>

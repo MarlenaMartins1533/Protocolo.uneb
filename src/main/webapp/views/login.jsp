@@ -20,9 +20,10 @@
 	<div class="content">
 		<div class="search-box">
 			<div class="search-box-form">
-                            <form:form commandName="login" class="search-box-form requirement" action="${pageContext.request.contextPath}/loginForm">
+                            <form:form commandName="login" class="search-box-form requirement" action="${pageContext.request.contextPath}/login">
 					<div class="main-search">
                                             <br/>
+                                            <h2 style="color: red">${message}</h2>
                                             <div class="regular-text-right">
                                                 <br/>
                                                 <br/>
@@ -33,13 +34,13 @@
                                                 <br/>
 						<div class="login-box">
 							<span class="regular-text">Usuário:</span>
-							<input path="username" name="protocol-number" class="login-input"/>
+							<form:input path="username" name="protocol-number" class="login-input"/>
 							</br></br>
 							<span class="regular-text">Senha:</span>
 							<form:password path="password" name="protocol-number" class="login-input"/>
 						</div>			
 						<div class="actions">
-							<a href="${pageContext.request.contextPath}/menu" class="regular-text">Login</a>
+                                                    <button type="submit">Login</button>
 							<span> | </span>
 							<a href="${pageContext.request.contextPath}/erro" class="regular-text">Esqueci minha senha</a>
 						</div>

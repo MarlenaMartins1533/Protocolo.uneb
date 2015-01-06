@@ -8,12 +8,17 @@ package protocolo.controller;
 import java.util.ArrayList;
 import java.util.Date;
 import java.text.SimpleDateFormat; //formatar data
+import java.util.List;
 import javax.enterprise.inject.Model;
+import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import protocolo.dao.ProtocolDAO;
+import protocolo.dao.UserDAO;
 import protocolo.model.Login;
+import protocolo.model.User;
 
 /**
  *
@@ -21,11 +26,14 @@ import protocolo.model.Login;
  */
 @Controller
 public class LoginController {
+    private UserDAO userDAO = new UserDAO();
     
     @RequestMapping(value = "/loginForm")
     ModelAndView loginForm(){
         ModelAndView modelAndView = new ModelAndView("login");
         modelAndView.addObject("login",new Login());
+        SimpleDateFormat date = new SimpleDateFormat("dd/MM/yyyy");
+        modelAndView.addObject("data",date.format(new Date()));
         return modelAndView;
     }
     
@@ -37,11 +45,32 @@ public class LoginController {
     }
     
     @RequestMapping(value = "/login")
-    ModelAndView login(@ModelAttribute Login login){
-        ModelAndView modelAndView = new ModelAndView("login");
-        SimpleDateFormat date = new SimpleDateFormat("dd/MM/yyyy");
-        modelAndView.addObject("data",date.format(new Date()));
-        return modelAndView;
+    ModelAndView login(@ModelAttribute Login login,HttpSession session){
+        System.out.println(login.getUsername());
+        ModelAndView modelAndView;
+        User user = userDAO.getUserByUsername(login.getUsername());
+        if(user == null){
+            modelAndView = new ModelAndView("login");
+            modelAndView.addObject("message", "Usuario "+login.getUsername()+" nao existe");
+            SimpleDateFormat date = new SimpleDateFormat("dd/MM/yyyy");
+            modelAndView.addObject("data",date.format(new Date()));
+            return modelAndView;
+        } else {
+            if(user.getPassword().equals(login.getPassword())){
+                session.setAttribute("usuario_logado", user);
+                modelAndView = new ModelAndView("menu");
+                modelAndView.addObject("usuario", user.getNome());
+                List protocols = user.getSetor().getProtocols();
+                modelAndView.addObject("protocols", protocols);
+                return modelAndView;
+            } else {
+                modelAndView = new ModelAndView("login");
+                modelAndView.addObject("message", "Senha Incorreta");
+                SimpleDateFormat date = new SimpleDateFormat("dd/MM/yyyy");
+                modelAndView.addObject("data",date.format(new Date()));
+                return modelAndView;
+            }
+        }
     }    
     
     @RequestMapping(value = "/erro")

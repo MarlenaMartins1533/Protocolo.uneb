@@ -9,6 +9,7 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import protocolo.model.Setor;
 import protocolo.model.User;
 
 /**
@@ -48,7 +49,9 @@ public class UserDAO {
         List list = session.createQuery("from User where iduser= :id").setParameter("id", id).list();
         transaction.commit();
         session.close();
-        return (User) list.get(0);
+        User user = (User) list.get(0);
+        
+        return user;
     }
     
     public User getUserByUsername(String username){
@@ -57,10 +60,11 @@ public class UserDAO {
         List list = session.createQuery("from User where username= :username").setParameter("username", username).list();
         transaction.commit();
         session.close();
+        User user = (User) list.get(0);
         if(list.isEmpty()){
             return null;
         }
-        return (User) list.get(0);
+        return user;
     }
     
     public List getAllUsers(){

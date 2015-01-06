@@ -17,7 +17,7 @@
 	<div class="header">
 		<div class="restricted-area">
 			<span class="saudacao">
-				Olá User, seja bem vindo!
+				Olá ${usuario}, seja bem vindo!
 			</span>
 			<span class="acesso-restrito">
 				<a class="link-list" href="${pageContext.request.contextPath}/login">Efetuar Logout</a>

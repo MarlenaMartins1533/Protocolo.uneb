@@ -10,7 +10,7 @@ package protocolo.model;
  * @author Murilo
  */
 public enum UserType {
+    ADMIN,
     SETOR,
     PROTOCOLO,
-    ADMIN,
 }
