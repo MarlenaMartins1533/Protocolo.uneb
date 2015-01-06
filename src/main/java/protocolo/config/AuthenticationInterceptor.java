@@ -24,7 +24,7 @@ class AuthenticationInterceptor extends HandlerInterceptorAdapter {
                     || uri.endsWith("/add")){
                 return true;
             } else {
-               response.sendRedirect("/Protocolo.uneb/login");
+               response.sendRedirect("/Protocolo.uneb/loginForm");
                return false;
             }
         } else {

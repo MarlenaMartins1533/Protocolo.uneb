@@ -46,7 +46,7 @@ public class UserDAO {
     public User getUserById(int id){
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        List list = session.createQuery("from User where iduser= :id").setParameter("id", id).list();
+        List list = session.createQuery("from User where id= :id").setParameter("id", id).list();
         transaction.commit();
         session.close();
         User user = (User) list.get(0);

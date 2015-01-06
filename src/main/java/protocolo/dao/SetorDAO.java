@@ -51,7 +51,7 @@ public class SetorDAO {
         return (Setor) list.get(0);
     }
     
-    public List getAllUsers(){
+    public List getAllSetores(){
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         List list = session.createQuery("from Setor").list();

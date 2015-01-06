@@ -52,14 +52,14 @@ public class Setor implements Serializable {
     /**
      * @return the nomeSetor
      */
-    public String getNomeSetor() {
+    public String getNome() {
         return nomeSetor;
     }
 
     /**
      * @param nomeSetor the nomeSetor to set
      */
-    public void setNomeSetor(String nomeSetor) {
+    public void setNome(String nomeSetor) {
         this.nomeSetor = nomeSetor;
     }
 
@@ -69,6 +69,16 @@ public class Setor implements Serializable {
     
     public void addProtocols(Protocol protocol){
         protocols.add(protocol);
+    }
+    
+    public void deleteProtocol(Protocol protocol){
+        int i = 0;
+        for(Protocol p : protocols){
+            if(p.getCodigo().equals(protocol.getCodigo())){
+                break;
+            }
+        }
+        protocols.remove(i);
     }
     
 }

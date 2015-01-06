@@ -24,6 +24,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "usuario")
 public class User implements Serializable {
+    private int setorID;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column
@@ -37,8 +38,9 @@ public class User implements Serializable {
     @Column(unique = true)
     private String username;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private Setor setor;
+    
     
     /**
      * @return the id
@@ -122,5 +124,19 @@ public class User implements Serializable {
      */
     public void setSetor(Setor setor) {
         this.setor = setor;
+    }
+
+    /**
+     * @return the setorID
+     */
+    public int getSetorID() {
+        return setorID;
+    }
+
+    /**
+     * @param setorID the setorID to set
+     */
+    public void setSetorID(int setorID) {
+        this.setorID = setorID;
     }
 }

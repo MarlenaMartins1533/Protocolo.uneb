@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import protocolo.dao.ProtocolDAO;
+import protocolo.dao.SetorDAO;
 import protocolo.dao.UserDAO;
 import protocolo.model.Login;
 import protocolo.model.User;
@@ -38,15 +39,18 @@ public class LoginController {
     }
     
     @RequestMapping(value = "/menu")
-    ModelAndView menu(){
+    ModelAndView menu(HttpSession session){
         ModelAndView modelAndView = new ModelAndView("menu");
-        modelAndView.addObject("protocols",new ArrayList());
+        User user = (User) session.getAttribute("usuario_logado");
+        modelAndView.addObject("usuario", user.getNome());
+        modelAndView.addObject("protocols",userDAO.getUserById(user.getId()).getSetor().getProtocols());
+        System.out.println();
+        
         return modelAndView;
     }
     
     @RequestMapping(value = "/login")
     ModelAndView login(@ModelAttribute Login login,HttpSession session){
-        System.out.println(login.getUsername());
         ModelAndView modelAndView;
         User user = userDAO.getUserByUsername(login.getUsername());
         if(user == null){
@@ -60,7 +64,11 @@ public class LoginController {
                 session.setAttribute("usuario_logado", user);
                 modelAndView = new ModelAndView("menu");
                 modelAndView.addObject("usuario", user.getNome());
-                List protocols = user.getSetor().getProtocols();
+                List protocols = null;
+                System.out.println(login.getUsername());
+                if(user.getSetor() != null){
+                    protocols = user.getSetor().getProtocols();
+                }
                 modelAndView.addObject("protocols", protocols);
                 return modelAndView;
             } else {
@@ -72,6 +80,12 @@ public class LoginController {
             }
         }
     }    
+    @RequestMapping(value = "/logout")
+    public ModelAndView logout(HttpSession session){
+        ModelAndView modelAndView = new ModelAndView("login","login",new Login());
+        session.setAttribute("usuario_logado", null);
+        return modelAndView;
+    }
     
     @RequestMapping(value = "/erro")
     ModelAndView erro(){

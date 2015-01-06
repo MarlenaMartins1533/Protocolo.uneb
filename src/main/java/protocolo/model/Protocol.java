@@ -20,6 +20,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "protocolo")
 public class Protocol {
+    private int setorID;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column
@@ -48,6 +49,8 @@ public class Protocol {
     private String cpf;
     
     private String data;
+    
+    private ProtocolStatus status;
 
     @Override
     public String toString() {
@@ -246,5 +249,33 @@ public class Protocol {
      */
     public void setData(String data) {
         this.data = data;
+    }
+
+    /**
+     * @return the status
+     */
+    public ProtocolStatus getStatus() {
+        return status;
+    }
+
+    /**
+     * @param status the status to set
+     */
+    public void setStatus(ProtocolStatus status) {
+        this.status = status;
+    }
+
+    /**
+     * @return the setorID
+     */
+    public int getSetorID() {
+        return setorID;
+    }
+
+    /**
+     * @param setorID the setorID to set
+     */
+    public void setSetorID(int setorID) {
+        this.setorID = setorID;
     }
 }

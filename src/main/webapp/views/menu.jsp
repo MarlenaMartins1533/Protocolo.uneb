@@ -17,13 +17,13 @@
 	<div class="header">
 		<div class="restricted-area">
 			<span class="saudacao">
-				Olá ${usuario}, seja bem vindo!
+                            Olá ${usuario}, seja bem vindo!
 			</span>
 			<span class="acesso-restrito">
-				<a class="link-list" href="${pageContext.request.contextPath}/login">Efetuar Logout</a>
+				<a class="link-list" href="${pageContext.request.contextPath}/logout">Efetuar Logout</a>
                                 </span>
 			<span class="user-menu">
-				<a class="link-list" href="systemConfiguration.php">Configuração do Sistema</a> | <a class="link-list" href="#">Meus dados</a> | <a class="link-list" href="index.html">Histórico de Solicitações</a> |
+				<a class="link-list" href="${pageContext.request.contextPath}/config">Configuração do Sistema</a> | <a class="link-list" href="${pageContext.request.contextPath}/menu">Histórico de Solicitações</a> |
 			</span>
 		
 		</div>
@@ -50,13 +50,13 @@
                     <c:forEach var="protocol" items="${protocols}">
                         <tr>
                             <td >
-                                <a class="link-list" href="protocol-detail/${protocol.codigo}">${protocol.codigo}</a>
+                                <a class="link-list" href="${pageContext.request.contextPath}/protocol-detail/${protocol.codigo}">${protocol.codigo}</a>
                             </td>
                             <td>
                                 ${protocol.objetoRequerimento}
                             </td>
                             <td>
-                                ${protocol.date}
+                                ${protocol.data}
                             </td>
                             <td>
                                 ${protocol.status}
