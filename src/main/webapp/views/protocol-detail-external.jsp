@@ -25,8 +25,14 @@
                       <fieldset>
                 <legend>Requerimento</legend>
             <p><br/>
+            <h3 style="color: red">${message}</h3>
                 <form:input style="visibility:hidden" path="id"/>
-                <form:input id="codigo" style="visibility:hidden" path="codigo"/>
+                <label class="regular-label-requirement" for="codigo">Codigo</label>
+                <form:input class="regular-input" id="codigo" path="codigo"/>
+                <br/><br/>
+                <label class="regular-label-requirement" for="status">Status</label>
+                <form:input class="regular-input" id="status" path="status"/>
+                <br/><br/>
                 <form:input style="visibility:hidden" path="data"/>
                 <span class="regular-text"><label class="regular-label-requirement" id="label-name">Nome</label></span>
                 <form:input path="nome" class="regular-input" id="input-name"/><br/><br/>
@@ -78,10 +84,14 @@
                 <span class="regular-text"><label class="regular-label-requirement" id="label-esclarecimento">Esclarecimento
                     sobre o objeto do requerimento:</label></span><br/><br/>
                     <p><form:textarea rows="6" cols="80" class="regular-text-area" path="esclarescimento"/></p>
-            </p>
 
+                <p> <div class="actions">
+                        <a href="${pageContext.request.contextPath}/" class="regular-text">Voltar</a>
+                    </div>
+                </p>
             </fieldset>
-        </form:form>
+            </form:form>
+        </div>
     </div>
 </body>
 

@@ -89,9 +89,9 @@
                     sobre o objeto do requerimento:</label></span><br/><br/>
                     <p><form:textarea rows="6" cols="80" class="regular-text-area" path="esclarescimento"/></p>
 
-                    <p> <button><a href="${pageContext.request.contextPath}/menu">Voltar</button>
-                   <button><a href="${pageContext.request.contextPath}/deferir/${codigo}">Deferir</a></button>
-                   <button><a href="${pageContext.request.contextPath}/indeferir/${codigo}">Indeferir</a></button>
+                    <p> <a href="${pageContext.request.contextPath}/menu">Voltar</a>
+                   <a href="${pageContext.request.contextPath}/deferir/${codigo}">Deferir</a>
+                   <a href="${pageContext.request.contextPath}/indeferir/${codigo}">Indeferir</a>
                 <span class="regular-text">Encaminhar:</span>
                 <form:select path="setorID">
                     <c:forEach var="s" items="${setores}">

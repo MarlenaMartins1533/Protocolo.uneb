@@ -60,10 +60,10 @@ public class UserDAO {
         List list = session.createQuery("from User where username= :username").setParameter("username", username).list();
         transaction.commit();
         session.close();
-        User user = (User) list.get(0);
         if(list.isEmpty()){
             return null;
         }
+        User user = (User) list.get(0);
         return user;
     }
     

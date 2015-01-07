@@ -24,7 +24,7 @@
 </div>
 <div class="content">
     <div class="protocol-detail">
-        <form:form commandName="usuario" action="${pageContext.request.contextPath}/addUser" class="form-protocol-detail">
+        <form:form commandName="usuario" action="${pageContext.request.contextPath}/${action}" class="form-protocol-detail">
             <fieldset>
                 <legend>Cadastro Usuario</legend>
                 <label for="nome">Nome</label>
@@ -37,9 +37,9 @@
                 <br/>
                 <label for="username">Username</label>
                 <form:input id="username" path="username"/>
+                
                 <br/>
                 <br/>
-                <label for="select-semestre">Setor</label>
                 <form:select class="regular-select" id="select-semestre" path="setorID">
                     <c:forEach var="s" items="${setores}">
                         <form:option value="${s.id}">${s.nome}</form:option>
@@ -48,7 +48,8 @@
                 <br/>
                 <br/>
                 <br/>
-                <button type="submit">Cadastrar</button>
+                <button type="submit">${botao}</button>
+                <form:input style="visibility: hidden;" path="id"/>
             </fieldset>
         </form:form>
     </div>

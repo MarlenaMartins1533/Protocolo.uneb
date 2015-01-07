@@ -278,4 +278,8 @@ public class Protocol {
     public void setSetorID(int setorID) {
         this.setorID = setorID;
     }
+
+    public void getProtocolById(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

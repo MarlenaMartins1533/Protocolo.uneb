@@ -29,13 +29,13 @@
                 <legend>Requerimento</legend>
             <p><br/>
                 <span class="regular-text"><label class="regular-label-requirement" id="label-name">Nome</label></span>
-                <form:input path="nome" class="regular-input" id="input-name"/><br/><br/>
+                <form:input required="required" path="nome" class="regular-input" id="input-name"/><br/><br/>
                 <span class="regular-text"><label class="regular-label-requirement" id="label-matricula">N°
                 Matrícula</label></span>
-                <form:input path="matricula" class="regular-input"/><br/><br/>
+                <form:input required="required" path="matricula" class="regular-input"/><br/><br/>
                 <span class="regular-text"><label class="regular-label-requirement"
                                                          id="label-curso">Curso</label></span>
-                <form:input path="curso" class="regular-input"/><br/><br/>
+                <form:input required="required" path="curso" class="regular-input"/><br/><br/>
                 <span class="regular-text"><label class="regular-label-requirement" id="label-semestre">Semestre</label></span>
                 <form:select class="regular-select" id="select-semestre" path="semestre">
                     <form:option value="1">1</form:option>
@@ -54,18 +54,18 @@
                     <form:option value="14">14</form:option>
                 </form:select><br/><br/>
                 <span class="regular-text"><label class="regular-label-requirement"
-                                                  id="label-rg">RG</label></span><form:input path="rg"
+                                                  id="label-rg">RG</label></span><form:input required="required" path="rg"
                                                                                         class="regular-input"
                                                                                         /><br/><br/>
                 <span class="regular-text"><label class="regular-label-requirement"
-                                                  id="label-cpf">CPF</label></span><form:input path="cpf"
+                                                  id="label-cpf">CPF</label></span><form:input required="required" path="cpf"
                                                                                           class="regular-input"
                                                                                           /><br/><br/>
                 <span class="regular-text"><label class="regular-label-requirement"
                                                          id="label-endereco">Endereço</label></span>
-                <form:input path="endereco" class="regular-input" size="150"/> <br/><br/>
+                <form:input required="required" path="endereco" class="regular-input" size="150"/> <br/><br/>
                 <span class="regular-text"><label class="regular-label-requirement" id="label-telefone">Telefone</label></span>
-                <form:input path="telefone" class="regular-input"/><br/><br/>
+                <form:input required="required" path="telefone" class="regular-input"/><br/><br/>
                 <span class="regular-text"><label class="regular-label-requirement" id="label-data">Data:</label></span>
                 <p class="regular-input">${data}</p><br/><br/><br/>
                 <span class="regular-text"><label class="regular-label-requirement" id="label-objeto">Objeto do

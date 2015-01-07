@@ -46,17 +46,26 @@ public class ProtocolController {
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public ModelAndView add(@ModelAttribute("protocolo") Protocol protocol){
         SimpleDateFormat date = new SimpleDateFormat("dd/MM/yyyy");
-        ModelAndView modelAndView = new ModelAndView("index");
-        modelAndView.addObject("codigo", new Codigo());
-        protocol.setData(date.format(new Date()));
-        String data = protocol.getData();
-        data = data.replace("/","");
-        protocol.setCodigo(protocol.getId()+ data);
+        ModelAndView modelAndView = new ModelAndView("protocol-detail-external");
+        modelAndView.addObject("message", "Salve Este Codigo, pois sem ele não será possivel acessar a página.");
+        // Setando dados de insercao
         protocol.setStatus(ProtocolStatus.PENDENTE);
         protocolDAO.add(protocol);
+        
+        // Setando codigo
+        protocolDAO.getProtocolById(protocol.getId());
+        protocol.setData(date.format(new Date()));
+        String data = protocol.getData();
+        data = data.replace("/","");        
+        protocol.setCodigo(protocol.getId()+ data);
+        protocolDAO.edit(protocol);
+        
+        //Colocando no setor
+        modelAndView.addObject("protocolo", protocol);
         Setor setor = setorDAO.getSetorById(1);
         setor.addProtocols(protocol);
         setorDAO.edit(setor);
+        
         return modelAndView;
     }
     
@@ -85,6 +94,7 @@ public class ProtocolController {
         Protocol protocol = protocolDAO.getProtocolByCodigo(codigo);
         modelAndView.addObject("protocolo", protocol);
         modelAndView.addObject("codigo", protocol.getCodigo());
+        modelAndView.addObject("data",protocol.getData());
         User user = (User)session.getAttribute("usuario_logado");
         modelAndView.addObject("usuario",user.getNome());
         List setores = setorDAO.getAllSetores();

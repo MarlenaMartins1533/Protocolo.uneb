@@ -24,7 +24,7 @@
 </div>
 <div class="content">
     <div class="protocol-detail">
-        <form:form commandName="setor" action="${pageContext.request.contextPath}/addSetor" class="form-protocol-detail">
+        <form:form commandName="setor" action="${pageContext.request.contextPath}/${action}" class="form-protocol-detail">
             <fieldset>
                 <legend>Cadastro Setor</legend>
                 <br/>
@@ -33,7 +33,7 @@
                 <form:input id="nomeSetor" path="nome"/>
                 <br/>
                 <br/>
-                <button type="submit">Cadastrar</button>
+                <button type="submit">${botao}</button>
             </fieldset>
         </form:form>
     </div>

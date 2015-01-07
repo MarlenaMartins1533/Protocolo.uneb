@@ -122,6 +122,7 @@ body {
 }
 .protocol-detail {
 	background-color: #dad8d7;
+        text-align: center;
 	position: relative;
 	margin: 60px auto 0;
 	width: 630px;

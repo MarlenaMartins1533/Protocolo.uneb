@@ -31,9 +31,8 @@
                             <div class="main-search">
                                 <p><a href="${pageContext.request.contextPath}/create-user" class="regular-text">Cadastrar Usuarios</a></p>
                                 <p><a href="${pageContext.request.contextPath}/create-setor" class="regular-text">Cadastrar Setores</a></p>
-                                <p><a href="" class="regular-text">Listar Protocolos</a></p>
-                                <p><a href="" class="regular-text">Listar Usuarios</a></p>
-                                <p><a href="" class="regular-text">Listar Setores</a></p>
+                                <p><a href="${pageContext.request.contextPath}/listUser" class="regular-text">Listar Usuarios</a></p>
+                                <p><a href="${pageContext.request.contextPath}/listSetor" class="regular-text">Listar Setores</a></p>
                             </div>
                         </div>
                 </div>
