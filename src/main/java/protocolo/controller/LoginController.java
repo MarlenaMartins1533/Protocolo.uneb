@@ -65,7 +65,6 @@ public class LoginController {
                 modelAndView = new ModelAndView("menu");
                 modelAndView.addObject("usuario", user.getNome());
                 List protocols = null;
-                System.out.println(login.getUsername());
                 if(user.getSetor() != null){
                     protocols = user.getSetor().getProtocols();
                 }
@@ -84,6 +83,8 @@ public class LoginController {
     public ModelAndView logout(HttpSession session){
         ModelAndView modelAndView = new ModelAndView("login","login",new Login());
         session.setAttribute("usuario_logado", null);
+        SimpleDateFormat date = new SimpleDateFormat("dd/MM/yyyy");
+        modelAndView.addObject("data",date.format(new Date()));
         return modelAndView;
     }
     

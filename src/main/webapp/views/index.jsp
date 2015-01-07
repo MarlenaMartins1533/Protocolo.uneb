@@ -27,6 +27,7 @@
 			<div class="search-box-form">
                             <form:form commandName="codigo" class="search-box-form requirement" action="${pageContext.request.contextPath}/search">
 					<div class="main-search">
+                                            <br/>
 						<br/>
 						<br/>
 						<br/>
@@ -34,15 +35,16 @@
                                                      <span> Seja bem-vindo! <label id="label-data"><p>Data: ${data}</p></label></span>
                                                  </div>
 						<br/>
+                                                <h4 style="color:red">${message}</h4>
                                                 <br/>
 						<br/>				
 						<span class="regular-text">Número do Protocolo</span><br/>
 						<form:input path="codigo" name="protocol-number" class="basicInput" placeholder="Buscar"/>
 						<br/><br/>
 						<div class="actions">
-							<a href="${pageContext.request.contextPath}/create-protocol" class="regular-text">Criar novo requerimento</a>
+                                                        <a href="${pageContext.request.contextPath}/create-protocol" class="regular-text">Criar novo requerimento</a>
 							<span> | </span>
-							<a href="${pageContext.request.contextPath}/protocol-detail" class="regular-text">Buscar Requerimento</a>
+                                                        <button type="submit" class="regular-text">Buscar Requerimento</button>
 						</div>
                             </form:form>
                         </div>

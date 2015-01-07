@@ -23,7 +23,7 @@
                             <form:form commandName="login" class="search-box-form requirement" action="${pageContext.request.contextPath}/login">
 					<div class="main-search">
                                             <br/>
-                                            <h2 style="color: red">${message}</h2>
+                                            
                                             <div class="regular-text-right">
                                                 <br/>
                                                 <br/>
@@ -31,6 +31,7 @@
                                             </div>
                                                 <br/>
                                                 <br/>
+                                                <h4 style="color: red">${message}</h4>
                                                 <br/>
 						<div class="login-box">
 							<span class="regular-text">Usuário:</span>
@@ -40,9 +41,8 @@
 							<form:password path="password" name="protocol-number" class="login-input"/>
 						</div>			
 						<div class="actions">
-                                                    <button type="submit">Login</button>
-							<span> | </span>
-							<a href="${pageContext.request.contextPath}/erro" class="regular-text">Esqueci minha senha</a>
+                                                    <button type="submit" class="regular-text">Login</button>
+                                                    | <a href="${pageContext.request.contentType}/Protocolo.uneb" class="regular-text">Voltar</a>
 						</div>
                                         </div>
                             </form:form>

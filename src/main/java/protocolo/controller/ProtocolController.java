@@ -61,13 +61,21 @@ public class ProtocolController {
     }
     
     
-    @RequestMapping(value = "/search/{codigo}")
-    public ModelAndView search(@PathVariable String codigo,HttpSession session){
-        ModelAndView modelAndView = new ModelAndView("protocol-detail");
-        Protocol protocol = protocolDAO.getProtocolByCodigo(codigo);
-        modelAndView.addObject("protocolo", protocol);
-        User user = (User)session.getAttribute("usuario_logado");
-        modelAndView.addObject("usuario",user.getNome());
+    @RequestMapping(value = "/search",method = RequestMethod.POST)
+    public ModelAndView search(@ModelAttribute Codigo codigo){
+        ModelAndView modelAndView;
+        Protocol protocol = protocolDAO.getProtocolByCodigo(codigo.getCodigo());
+        if(protocol == null){
+            modelAndView = new ModelAndView("index");
+            SimpleDateFormat date = new SimpleDateFormat("dd/MM/yyyy");
+            modelAndView.addObject("data",date.format(new Date()));
+            modelAndView.addObject("message","Protocolo Inexistente");
+        } else {
+            modelAndView = new ModelAndView("protocol-detail-external");
+            modelAndView.addObject("protocolo", protocol);    
+            modelAndView.addObject("data", protocol.getData());
+        }
+        
         return modelAndView;
     }
     

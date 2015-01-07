@@ -21,7 +21,7 @@ class AuthenticationInterceptor extends HandlerInterceptorAdapter {
             String uri = request.getRequestURI();
             if(uri.endsWith("/Protocolo.uneb") || uri.endsWith("create-protocol")
                     || uri.endsWith("/loginForm") || uri.endsWith("/login")
-                    || uri.endsWith("/add")){
+                    || uri.endsWith("/add") || uri.endsWith("/search")){
                 return true;
             } else {
                response.sendRedirect("/Protocolo.uneb/loginForm");

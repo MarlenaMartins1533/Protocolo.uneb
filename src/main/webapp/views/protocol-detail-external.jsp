@@ -1,6 +1,6 @@
 <%-- 
-    Document   : protocol-detail
-    Created on : Dec 14, 2014, 11:07:03 PM
+    Document   : protocol-detail-external
+    Created on : Jan 6, 2015, 10:45:17 PM
     Author     : Murilo
 --%>
 
@@ -17,16 +17,6 @@
 <body>
 <div class="header">
     <div class="restricted-area">
-			<span class="saudacao">
-				Olá, ${usuario} seja bem vindo!
-			</span>
-			<span class="acesso-restrito">
-				<a href="${pageContext.request.contextPath}/logout">Efetuar Logout</a>
-			</span>
-			<span class="user-menu">
-				<a href="${pageContext.request.contextPath}/menu">Histórico de Solicitações</a> |
-			</span>
-
     </div>
 </div>
 <div class="content">
@@ -88,17 +78,6 @@
                 <span class="regular-text"><label class="regular-label-requirement" id="label-esclarecimento">Esclarecimento
                     sobre o objeto do requerimento:</label></span><br/><br/>
                     <p><form:textarea rows="6" cols="80" class="regular-text-area" path="esclarescimento"/></p>
-
-                    <p> <button><a href="${pageContext.request.contextPath}/menu">Voltar</button>
-                   <button><a href="${pageContext.request.contextPath}/deferir/${codigo}">Deferir</a></button>
-                   <button><a href="${pageContext.request.contextPath}/indeferir/${codigo}">Indeferir</a></button>
-                <span class="regular-text">Encaminhar:</span>
-                <form:select path="setorID">
-                    <c:forEach var="s" items="${setores}">
-                        <form:option value="${s.id}">${s.nome}</form:option>
-                    </c:forEach>
-                </form:select>
-                <input type="submit" value="Encaminhar" class="btn-encaminhar"></input>
             </p>
 
             </fieldset>
