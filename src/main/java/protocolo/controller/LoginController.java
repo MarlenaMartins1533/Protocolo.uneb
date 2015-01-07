@@ -20,6 +20,7 @@ import protocolo.dao.SetorDAO;
 import protocolo.dao.UserDAO;
 import protocolo.model.Login;
 import protocolo.model.User;
+import protocolo.model.UserType;
 
 /**
  *
@@ -43,7 +44,11 @@ public class LoginController {
         ModelAndView modelAndView = new ModelAndView("menu");
         User user = (User) session.getAttribute("usuario_logado");
         modelAndView.addObject("usuario", user.getNome());
-        modelAndView.addObject("protocols",userDAO.getUserById(user.getId()).getSetor().getProtocols());
+        List protocols = null;
+        if(user.getSetor() != null){
+            protocols = userDAO.getUserById(user.getId()).getSetor().getProtocols();
+        }
+        modelAndView.addObject("protocols",protocols);
         System.out.println();
         
         return modelAndView;
@@ -62,7 +67,11 @@ public class LoginController {
         } else {
             if(user.getPassword().equals(login.getPassword())){
                 session.setAttribute("usuario_logado", user);
-                modelAndView = new ModelAndView("menu");
+                if(user.getType() == UserType.ADMIN){
+                    modelAndView = new ModelAndView("config");
+                } else {
+                    modelAndView = new ModelAndView("menu");
+                }
                 modelAndView.addObject("usuario", user.getNome());
                 List protocols = null;
                 if(user.getSetor() != null){

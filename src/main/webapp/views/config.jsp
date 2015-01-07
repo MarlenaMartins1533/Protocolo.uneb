@@ -18,7 +18,7 @@
 	<div class="header">
 		<div class="restricted-area">
 			<span class="acesso-restrito">
-                            <a href="${pageContext.request.contextPath}/loginForm" class="regular-text">Acesso Restrito</a>
+                            <a href="${pageContext.request.contextPath}/logout" class="regular-text">Efetuar Logout</a>
 			</span>
 		</div>
 	</div>
@@ -29,11 +29,11 @@
                             <br/>
                             <br/>	
                             <div class="main-search">
-                                <a href="${pageContext.request.contextPath}/create-user" class="regular-text">Cadastrar Usuarios</a>
-                                <br/>
-                                <br/>
-                                <br/>
-                                <a href="${pageContext.request.contextPath}/create-setor" class="regular-text">Cadastrar Setores</a>
+                                <p><a href="${pageContext.request.contextPath}/create-user" class="regular-text">Cadastrar Usuarios</a></p>
+                                <p><a href="${pageContext.request.contextPath}/create-setor" class="regular-text">Cadastrar Setores</a></p>
+                                <p><a href="" class="regular-text">Listar Protocolos</a></p>
+                                <p><a href="" class="regular-text">Listar Usuarios</a></p>
+                                <p><a href="" class="regular-text">Listar Setores</a></p>
                             </div>
                         </div>
                 </div>

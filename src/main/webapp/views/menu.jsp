@@ -23,7 +23,7 @@
 				<a class="link-list" href="${pageContext.request.contextPath}/logout">Efetuar Logout</a>
                                 </span>
 			<span class="user-menu">
-				<a class="link-list" href="${pageContext.request.contextPath}/config">Configuração do Sistema</a> | <a class="link-list" href="${pageContext.request.contextPath}/menu">Histórico de Solicitações</a> |
+				<a class="link-list" href="${pageContext.request.contextPath}/menu">Histórico de Solicitações</a> |
 			</span>
 		
 		</div>

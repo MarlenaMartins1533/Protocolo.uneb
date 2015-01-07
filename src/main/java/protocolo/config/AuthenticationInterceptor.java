@@ -8,6 +8,8 @@ package protocolo.config;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+import protocolo.model.User;
+import protocolo.model.UserType;
 
 /**
  *
@@ -28,12 +30,23 @@ class AuthenticationInterceptor extends HandlerInterceptorAdapter {
                return false;
             }
         } else {
-            String uri = request.getRequestURI();
-            if(uri.endsWith("/loginForm") || uri.endsWith("/login")){
-                response.sendRedirect("/Protocolo.uneb/menu");
-                return false;
+            User user = (User)request.getSession().getAttribute("usuario_logado");
+            if(user.getType() == UserType.ADMIN){
+                String uri = request.getRequestURI();
+                if(uri.endsWith("/loginForm") || uri.endsWith("/login") || uri.endsWith("/menu")){
+                    response.sendRedirect("/Protocolo.uneb/config");
+                    return false;
+                } else {
+                    return true;
+                }
             } else {
-                return true;
+                String uri = request.getRequestURI();
+                if(uri.endsWith("/loginForm") || uri.endsWith("/login")){
+                    response.sendRedirect("/Protocolo.uneb/menu");
+                    return false;
+                } else {
+                    return true;
+                }
             }
         }
     }
